@@ -16,7 +16,7 @@ joined = []
 
 @bot.event
 async def on_member_join(member:discord.member):            # Greets new members as they join the server
-    channel = bot.get_channel(544577606150914057)                # and adds their name to a list.
+    channel = bot.get_channel('CHANNEL_TOKEN')                # and adds their name to a list.
     await channel.send(f'Welcome {member.display_name}!')
     joined.append(member.display_name)
 
@@ -25,7 +25,7 @@ left = []
 
 @bot.event
 async def on_member_remove(member:discord.member):                  # Notifies when someone leaves the server
-    channel = bot.get_channel(544577606150914057)                        # and adds their name to a list.
+    channel = bot.get_channel('CHANNEL_TOKEN')                        # and adds their name to a list.
     await channel.send(f'{member.display_name} left the server.')
     left.append(member.display_name)
 
@@ -67,7 +67,7 @@ async def check_birthdays():
 
         if birthday.month == today.month and birthday.day == today.day:
 
-            channel = bot.get_channel(918339121179664447)  
+            channel = bot.get_channel('CHANNEL_TOKEN')  
             await channel.send(f'Happy Birthday, {user.mention}! >w<\nHope you have a great day!')
 
 @bot.event
