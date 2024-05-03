@@ -12,28 +12,26 @@ bot = commands.Bot(command_prefix=">", intents=intents)
 
 # EVENTS:
 
-joined = []
 
 @bot.event
-async def on_member_join(member:discord.member):            # Greets new members as they join the server
-    channel = bot.get_channel('CHANNEL_TOKEN')                # and adds their name to a list.
+async def on_member_join(member:discord.member):
+    # Greets new members as they join the server
+    channel = bot.get_channel('CHANNEL_TOKEN')
     await channel.send(f'Welcome {member.display_name}!')
-    joined.append(member.display_name)
 
-
-left = []
 
 @bot.event
-async def on_member_remove(member:discord.member):                  # Notifies when someone leaves the server
-    channel = bot.get_channel('CHANNEL_TOKEN')                        # and adds their name to a list.
-    await channel.send(f'{member.display_name} left the server.')
-    left.append(member.display_name)
+async def on_member_remove(member:discord.member):
+    # Notifies when someone leaves the server
+    channel = bot.get_channel('CHANNEL_TOKEN')
+    await channel.send(f'{member.display_name} left the server.') 
 
 
 # COMMANDS:
 
 @bot.command()
 async def roll(ctx):
+    # Lets the user roll a number from 1 to 100
 
     roll = randint(1, 100)
     await ctx.send(f'{ctx.author.display_name} rolled {roll}!')
@@ -46,7 +44,8 @@ async def get_birthday(ctx):
 
     current_time_est = datetime.now(est)
 
-    user = ctx.author                                                   # Grabs the message's author
+    # Grabs the message's author
+    user = ctx.author 
 
     await ctx.send('Please, type in your birthday (YYYY-MM-DD): ')
     try:
@@ -75,5 +74,5 @@ async def on_ready():
     print('Bot is ready.')
     check_birthdays.start()
 
-# runs the bot
+# Runs the bot
 bot.run()
