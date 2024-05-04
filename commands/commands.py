@@ -1,3 +1,9 @@
+import discord
+from main import bot
+from random import randint
+from datetime import datetime
+import pytz
+
 # COMMANDS:
 
 @bot.command()

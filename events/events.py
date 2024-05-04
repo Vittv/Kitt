@@ -1,3 +1,7 @@
+import discord
+from main import bot
+from main import check_birthdays
+
 # EVENTS:
 
 @bot.event
